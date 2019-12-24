@@ -13,6 +13,7 @@
         "webpack-cli": "^3.3.10"
     },
     "scripts": {
-        "dev": "webpack"
+        "dev": "webpack",
+        "watch": "webpack -w"
     }
 }

@@ -7,8 +7,8 @@
                 <PlayingCardSuit suit="C"/>
             </div>
         </div>
-        <div class="back" />
     </div>
+    <div class="back" />
 </div>
 </template>
 
