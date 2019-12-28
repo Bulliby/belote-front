@@ -1,26 +1,32 @@
 import Vue from 'vue'
-import Echo from 'laravel-echo'
 import App from './App.vue'
 
-window.Pusher= require('pusher-js');
+const ws = new WebSocket('ws://127.0.0.1:6001');
 
-window.Echo = new Echo({
-    broadcaster: 'pusher',
-    key: '6913324348723',
-    wsHost: '127.0.0.1',
-    wsPort: 6001,
-    disableStats: true,
-});
+var hand = null;
 
-window.Echo.channel('my-channel')
-    .listen('test', (e) => {
-        console.log(e);
-    });
+ws.onmessage = (e) => {
+    let data = JSON.parse(e.data);
+
+    if (data['hand']) {
+        console.log('hello');
+        hand = data['hand'];
+        var evt = new CustomEvent("look", {detail: hand});
+        el.dispatchEvent(evt);
+    }
+};
+
+function modifyText() {
+    console.log("event listner");
+}
 
 var app = new Vue({
     el: '#app',
     render: h => h(App),
     data: {
-        message: 'Hello Vue!'
+        hand: hand
     }
 });
+
+var el = document.getElementById('game-area-container');
+el.addEventListener("look", modifyText, false);

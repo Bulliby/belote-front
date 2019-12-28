@@ -1,10 +1,12 @@
 <template>
-    <div id="game-area-container">
+    <div v-on:look="getGameHand" id="game-area-container">
         <section id="player-south" class="player">
-            <PlayingCard>
-            </PlayingCard>
+            <div v-for="(card, index) in hand">
+                <PlayingCard :value="card.Value" :suit="card.Shape" class="card" :class="style(index)">
+                </PlayingCard>
+            </div>
         </section>
-        <section id="player-north" class="player">
+        <!--section id="player-north" class="player">
             <PlayingCard>
             </PlayingCard>
         </section>
@@ -15,23 +17,80 @@
         <section id="player-west" class="player">
             <PlayingCard>
             </PlayingCard>
-        </section>
+        </section!-->
     </div>
 </template>
 <script>
 import PlayingCard from './PlayingCard.vue';
-
 export default {
     components: {
         PlayingCard,
+    },
+    methods: {
+        //Get game hand from a Custom event
+        getGameHand(e) {
+            this.hand = e.detail;
+        },
+        style(index) {
+            return "card-" + Number(index + 1);
+        }
+    },
+    data() {
+        return {
+            hand: null,
+        }
     }
 }
 </script>
 
-<style>
+<style scoped>
+
+.card-1 {
+    position: absolute;
+}
+
+.card-2 {
+    position: absolute;
+    left: 50px;
+}
+
+.card-3 {
+    position: absolute;
+    left: 100px;
+}
+
+.card-4 {
+    position: absolute;
+    left: 150px;
+}
+
+.card-5 {
+    position: absolute;
+    left: 200px;
+}
+
+.card-6 {
+    position: absolute;
+    left: 250px;
+}
+
+.card-7 {
+    position: absolute;
+    left: 300px;
+}
+
+.card-8 {
+    position: absolute;
+    left: 350px;
+}
+
+.card {
+    /*border: solid;*/
+}
+
 
 .player {
-    /*background-color: blue; */
+    position: relative;
 }
 
 #game-area-container {
@@ -46,7 +105,7 @@ export default {
 #player-south {
     grid-column-start: 2;
     grid-row-start: 3;
-    justify-self: center;
+    justify-self: left;
 }
 
 #player-north {

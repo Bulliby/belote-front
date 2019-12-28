@@ -3,8 +3,8 @@
     <div class="card">
         <div class="front">
             <div class="top-corner">
-                <PlayingCardValue value="K" suit="C"/>
-                <PlayingCardSuit suit="C"/>
+                <PlayingCardValue :value="value" :suit="suit"/>
+                <PlayingCardSuit :suit="suit"/>
             </div>
         </div>
     </div>
@@ -20,6 +20,16 @@ export default {
     components: {
         PlayingCardValue,
 		PlayingCardSuit,
+    },
+    props: {
+        value: {
+            type: String,
+            required: true
+        },
+        suit: {
+            type: String,
+            required: true
+        }
     }
 }
 </script>

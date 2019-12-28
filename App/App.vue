@@ -7,6 +7,6 @@
     export default {
         components: {
             GameArea
-        }
+        },
     }
 </script>
