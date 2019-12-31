@@ -3,7 +3,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './App/app.js',
+    entry: './src/App/app.js',
     mode: 'development',
     output: {
         path: path.resolve(__dirname, 'public'),

@@ -1,8 +1,8 @@
 <template>
-    <div v-on:look="getGameHand" id="game-area-container">
+    <div v-on:hand="getGameHand" id="game-area-container">
         <section id="player-south" class="player">
             <div v-for="(card, index) in hand">
-                <PlayingCard :value="card.Value" :suit="card.Shape" class="card" :class="style(index)">
+                <PlayingCard :value="card.value" :suit="card.shape" class="card" :class="style(index)">
                 </PlayingCard>
             </div>
         </section>
@@ -22,6 +22,7 @@
 </template>
 <script>
 import PlayingCard from './PlayingCard.vue';
+import Shoe from '../../build/Shoe'
 export default {
     components: {
         PlayingCard,
@@ -85,7 +86,6 @@ export default {
 }
 
 .card {
-    /*border: solid;*/
 }
 
 
