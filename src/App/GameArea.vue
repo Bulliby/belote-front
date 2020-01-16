@@ -1,28 +1,16 @@
 <template>
     <div v-on:hand="getGameHand" id="game-area-container">
         <section id="player-south" class="player">
-            <div v-for="(card, index) in hand">
-                <PlayingCard :value="card.value" :suit="card.shape" class="card" :class="style(index)">
+            <div v-for="(card, index) in hand" @click="current = index">
+                <PlayingCard  :value="card.value" :suit="card.shape" class="card" :class="[{target:index === current}, style(index)]">
                 </PlayingCard>
             </div>
         </section>
-        <!--section id="player-north" class="player">
-            <PlayingCard>
-            </PlayingCard>
-        </section>
-        <section id="player-east" class="player">
-            <PlayingCard>
-            </PlayingCard>
-        </section>
-        <section id="player-west" class="player">
-            <PlayingCard>
-            </PlayingCard>
-        </section!-->
     </div>
 </template>
 <script>
 import PlayingCard from './PlayingCard.vue';
-import Shoe from '../../build/Shoe'
+import Hand from '../../build/Hand'
 export default {
     components: {
         PlayingCard,
@@ -30,15 +18,17 @@ export default {
     methods: {
         //Get game hand from a Custom event
         getGameHand(e) {
+            let test = new Hand();
             this.hand = e.detail;
         },
         style(index) {
             return "card-" + Number(index + 1);
-        }
+        },
     },
     data() {
         return {
             hand: null,
+            current: null,
         }
     }
 }
@@ -48,6 +38,11 @@ export default {
 
 .card-1 {
     position: absolute;
+}
+
+.target {
+    position: absolute;
+    transform: translateY(-300px);
 }
 
 .card-2 {

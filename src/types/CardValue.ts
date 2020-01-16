@@ -1,11 +1,12 @@
 export default class CardValue {
     static readonly VALUE = [
-        "AS",
+        "A",
         "7",
         "8",
         "9",
-        "V",
-        "D",
+        "10",
+        "J",
+        "Q",
         "K",
     ];
 }

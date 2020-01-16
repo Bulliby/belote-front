@@ -1,37 +1,26 @@
-class Randomization {
-
-    constructor(private max: number, private min: number = 0) {
-    }
+//TODO put static function?
+export default class Randomization {
 
     /**
      * Get random int between 0 and Max
      */
-    getRandomInt() :number {
-        return Math.floor(Math.random() * Math.floor(this.max));
+    static getRandomInt(max: number) :number {
+        return Math.floor(Math.random() * Math.floor(max));
     }
 
     /**
      * Get random int Between two value
      */
-    getRandomIntBtw() :number {
-        let min = Math.ceil(this.min);
-        let max = Math.floor(this.max);
+    static getRandomIntBtw(min: number, max: number) :number {
         //The maximum is exclusive and the minimum is inclusive
-        return Math.floor(Math.random() * (max - min)) + min; 
+        return Math.floor(Math.random() * (Math.ceil(max) - Math.ceil(min))) + Math.ceil(min); 
     }
 
     /**
      * Get random int Between two value
      */
-    getRandomIntBtwInclusive() :number {
-        let min = Math.ceil(this.min);
-        let max = Math.floor(this.max);
+    static getRandomIntBtwInclusive(min: number, max: number) :number {
         //The maximum is inclusive and the minimum is inclusive
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+        return Math.floor(Math.random() * (Math.ceil(max) - Math.ceil(min) + 1)) + Math.ceil(min); 
     }
 }
-
-var rand = new Randomization(100);
-
-console.log(rand.getRandomIntBtw());
-console.log(rand.getRandomIntBtwInclusive());

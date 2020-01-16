@@ -19,6 +19,7 @@
         "build-ts": "./node_modules/typescript/bin/tsc"
     },
     "devDependencies": {
+        "@types/node": "^13.1.2",
         "typescript": "^3.7.4"
     }
 }

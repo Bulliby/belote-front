@@ -4,8 +4,12 @@ import Card from "./Card"
 
 export default class Shoe {
     giveShoe(): Card[] {
-        console.log(CardValue.VALUE);  
-        console.log(CardShape.SHAPE);  
-        return [new Card("C", "V")];
+        let ret = [];
+        CardShape.SHAPE.forEach((shape) => {
+            CardValue.VALUE.forEach((value) => {
+                ret.push(new Card(value, shape));
+            });
+        });
+        return ret;
     }    
 }
