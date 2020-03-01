@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Home from './Home.vue'
+import Router from 'vue-router'
+import { createRouter } from '../router/router.js'
 
 const ws = new WebSocket('ws://127.0.0.1:6001');
 
@@ -16,7 +19,11 @@ ws.onmessage = (e) => {
     }
 };
 
+const router = createRouter();
+Vue.use(Router);
+
 var app = new Vue({
     el: '#app',
-    render: h => h(App),
+    router,
+    render: h => h(Home),
 });
