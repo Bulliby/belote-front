@@ -81,6 +81,9 @@ export default {
 }
 
 .card {
+    margin: 0;
+    border: 0;
+    padding: 0;
 }
 
 
@@ -100,7 +103,8 @@ export default {
 #player-south {
     grid-column-start: 2;
     grid-row-start: 3;
-    justify-self: left;
+    justify-self: center;
+    right: 250px;
 }
 
 #player-north {

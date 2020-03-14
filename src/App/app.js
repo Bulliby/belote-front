@@ -25,5 +25,5 @@ Vue.use(Router);
 var app = new Vue({
     el: '#app',
     router,
-    render: h => h(Home),
+    render: h => h(App),
 });
