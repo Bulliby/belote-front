@@ -48,8 +48,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
+@media (max-height: 650px), (max-width: 1100px) {
+    #player-west, #player-east, #player-north {
+        display: none;
+    }
+}
+
+</style>
+
+<style scoped>
 .card-1 {
     position: absolute;
 }
@@ -100,7 +109,6 @@ export default {
     padding: 0;
 }
 
-
 .player {
     position: relative;
 }
@@ -149,5 +157,5 @@ export default {
     bottom: 6rem;
     right: 4rem;
 }
-</style>
 
+</style>
