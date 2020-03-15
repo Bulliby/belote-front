@@ -6,14 +6,28 @@
                 </PlayingCard>
             </div>
         </section>
+        <section id="player-north" class="player">
+            <RemotePlayer>
+            </RemotePlayer>
+        </section>
+        <section id="player-east" class="player">
+            <RemotePlayer>
+            </RemotePlayer>
+        </section>
+        <section id="player-west" class="player">
+            <RemotePlayer>
+            </RemotePlayer>
+        </section>
     </div>
 </template>
 <script>
 import PlayingCard from './PlayingCard.vue';
+import RemotePlayer from './RemotePlayer.vue';
 import Hand from '../../build/Hand'
 export default {
     components: {
         PlayingCard,
+        RemotePlayer,
     },
     methods: {
         //Get game hand from a Custom event
@@ -42,7 +56,7 @@ export default {
 
 .target {
     position: absolute;
-    transform: translateY(-300px);
+    transform: translateY(-100px);
 }
 
 .card-2 {
@@ -104,25 +118,36 @@ export default {
     grid-column-start: 2;
     grid-row-start: 3;
     justify-self: center;
+    align-self: center;
     right: 250px;
+    bottom: 6rem;
 }
 
 #player-north {
     grid-column-start: 2;
     grid-row-start: 1;
     justify-self: center;
+    align-self: center;
+    bottom: 6rem;
+    right: 4rem;
 }
 
 #player-east {
     grid-column-start: 1;
     grid-row-start: 2;
     justify-self: center;
+    align-self: center;
+    bottom: 6rem;
+    right: 4rem;
 }
 
 #player-west {
     grid-column-start: 3;
     grid-row-start: 2;
     justify-self: center;
+    align-self: center;
+    bottom: 6rem;
+    right: 4rem;
 }
 </style>
 
