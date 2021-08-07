@@ -33,7 +33,7 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .card {
     position: relative;
     display: inline-block;
@@ -58,11 +58,11 @@ export default {
     transform-style: preserve-3d;
 }
 .card .front {
-    background-image: url('../../assets/card-front.svg');
+    /*background-image: url('../../assets/card-front.svg');*/
     background-color: white;
 }
 .card .back {
-    background-image: url('../../assets/card-back.svg');
+    /*background-image: url('../../assets/card-back.svg');*/
     transform: rotateY(-180deg);
     background-color: blue;
 }
