@@ -23,7 +23,7 @@
 <script>
 import PlayingCard from './PlayingCard.vue';
 import RemotePlayer from './RemotePlayer.vue';
-import Hand from '../../build/Hand'
+import Hand from '../../ts/Hand'
 export default {
     components: {
         PlayingCard,
@@ -157,5 +157,4 @@ export default {
     bottom: 6rem;
     right: 4rem;
 }
-
 </style>
