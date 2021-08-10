@@ -23,7 +23,6 @@
 <script>
 import PlayingCard from './PlayingCard.vue';
 import RemotePlayer from './RemotePlayer.vue';
-import Hand from '../../ts/Hand'
 export default {
     components: {
         PlayingCard,
@@ -32,7 +31,6 @@ export default {
     methods: {
         //Get game hand from a Custom event
         getGameHand(e) {
-            let test = new Hand();
             this.hand = e.detail;
         },
         style(index) {
