@@ -24,7 +24,6 @@ export default {
 
 .card, .back{
 	background-color: red;
-	/*background-image: url('../../assets/card-back.svg');*/
 	transform: rotateY(-180deg);
 }
 .card, .back {

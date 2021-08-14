@@ -58,11 +58,9 @@ export default {
     transform-style: preserve-3d;
 }
 .card .front {
-    /*background-image: url('../../assets/card-front.svg');*/
     background-color: white;
 }
 .card .back {
-    /*background-image: url('../../assets/card-back.svg');*/
     transform: rotateY(-180deg);
     background-color: blue;
 }
