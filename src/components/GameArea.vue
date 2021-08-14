@@ -1,8 +1,8 @@
 <template>
     <div v-on:hand="getGameHand" id="game-area-container">
         <section id="player-south" class="player">
-            <div v-for="(card, index) in hand" @click="current = index">
-                <PlayingCard  :value="card.value" :suit="card.shape" class="card" :class="[{target:index === current}, style(index)]">
+            <div v-for="(card, index) in hand" @click="playCard(index)">
+                <PlayingCard  :value="card.value" :suit="card.shape" class="card" :class="[{target:index === playingCard}, style(index)]">
                 </PlayingCard>
             </div>
         </section>
@@ -28,6 +28,7 @@ export default {
         PlayingCard,
         RemotePlayer,
     },
+    inject: ['ws'],
     methods: {
         //Get game hand from a Custom event
         getGameHand(e) {
@@ -36,11 +37,19 @@ export default {
         style(index) {
             return "card-" + Number(index + 1);
         },
+        playCard(index) {
+            /* This is my time to play ? */
+            /* Can I play this card ? */
+            this.playingCard = index
+            console.log('hello');
+            this.ws.send("hello");
+        }
     },
     data() {
         return {
             hand: null,
-            current: null,
+            /* Card selected by player to send via WS*/
+            playingCard: null,
         }
     }
 }
@@ -61,6 +70,7 @@ export default {
     position: absolute;
 }
 
+/* Permit to move the card with @click event */
 .target {
     position: absolute;
     transform: translateY(-100px);
