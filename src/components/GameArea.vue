@@ -41,8 +41,7 @@ export default {
             /* This is my time to play ? */
             /* Can I play this card ? */
             this.playingCard = index
-            console.log('hello');
-            this.ws.send("hello");
+            this.ws.sendJson({"index":index});
         }
     },
     data() {
