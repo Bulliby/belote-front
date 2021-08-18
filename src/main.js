@@ -15,8 +15,8 @@ var hand = null;
 ws.onmessage = (e) => {
     let data = JSON.parse(e.data);
 
-    if (data['hand']) {
-        hand = data['hand'];
+    if (data["action"] = "hand") {
+        hand = data['data']['hand'];
         var el = document.getElementById('game-area-container');
         var evt = new CustomEvent("hand", {detail: hand});
         el.dispatchEvent(evt);

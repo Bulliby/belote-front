@@ -41,7 +41,8 @@ export default {
             /* This is my time to play ? */
             /* Can I play this card ? */
             this.playingCard = index
-            this.ws.sendJson({"index":index});
+            /* Voir pour l'usage de proxy MDN pour remplir la partie player_id et d'hypotetique autre valeur */
+            this.ws.sendJson({"action":"playingCard", "player_id":"SUD", "data": {"card": this.hand[index]}});
         }
     },
     data() {
