@@ -33,6 +33,7 @@ export default {
         //Get game hand from a Custom event
         getGameHand(e) {
             this.hand = e.detail;
+            this.player_id = document.title;
         },
         style(index) {
             return "card-" + Number(index + 1);
@@ -42,12 +43,13 @@ export default {
             /* Can I play this card ? */
             this.playingCard = index
             /* Voir pour l'usage de proxy MDN pour remplir la partie player_id et d'hypotetique autre valeur */
-            this.ws.sendJson({"action":"playingCard", "player_id":"SUD", "data": {"card": this.hand[index]}});
+            this.ws.sendJson({"action":"playingCard", "player_id": this.player_id, "data": {"card": this.hand[index]}});
         }
     },
     data() {
         return {
             hand: null,
+            player_id: null,
             /* Card selected by player to send via WS*/
             playingCard: null,
         }
