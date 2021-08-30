@@ -15,11 +15,13 @@ var hand = null;
 ws.onmessage = (e) => {
     let data = JSON.parse(e.data);
 
-    if (data["action"] = "hand") {
+    if (data["action"] == "hand") {
         document.title = data.player_id;
         hand = data['data']['hand'];
         var el = document.getElementById('game-area-container');
         var evt = new CustomEvent("hand", {detail: hand});
         el.dispatchEvent(evt);
+    } else if (data["action"] == "playingCard") {
+        console.log(data["data"]["card"]);
     }
 };
